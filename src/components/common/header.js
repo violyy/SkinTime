@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 import { Anchor, Drawer, Button } from 'antd';
+import logon from '../../assets/images/logo.png';
 
-const { Link } = Anchor;
+const { Link: AnchorLink } = Anchor;
 
-function AppHeader() {
+function AppHeader({ isLoggedIn }) {
   const [visible, setVisible] = useState(false);
 
   const showDrawer = () => {
@@ -19,22 +20,26 @@ function AppHeader() {
     <div className="container-fluid">
       <div className="header">
         <div className="logo">
-          <i className="fas fa-bolt"></i>
-          <a href="http://google.com">Tech</a>
+          <img src={logon} alt="Logo-n" className="logo-n" />
         </div>
         <div className="mobileHidden">
           <Anchor targetOffset="65">
-            <Link href="#hero" title="Home" />
-            <Link href="#about" title="About" />
-            <Link href="#feature" title="Features" />
-            <Link href="#works" title="How it works" />
-            <Link href="#faq" title="FAQ" />
-            <Link href="#pricing" title="Pricing" />
-            <Link href="#contact" title="Contact" />
+            <AnchorLink href="/" title="Home" />
+            <AnchorLink href="/works" title="About" />
+            <AnchorLink href="/contact" title="Contact" />
+            {isLoggedIn ? (
+              <Link to="/login">
+                <button className="btnheader-login">My Account</button>
+              </Link>
+            ) : (
+              <Link to="/login">
+                <button className="btnheader-login">Login</button>
+              </Link>
+            )}
           </Anchor>
         </div>
         <div className="mobileVisible">
-          <Button type="primary" onClick={showDrawer}>
+          <Button onClick={showDrawer}>
             <i className="fas fa-bars"></i>
           </Button>
           <Drawer
@@ -44,14 +49,19 @@ function AppHeader() {
             visible={visible}
           >
             <Anchor targetOffset="65">
-              <Link href="#hero" title="Home" />
-              <Link href="#about" title="About" />
-              <Link href="#feature" title="Features" />
-              <Link href="#works" title="How it works" />
-              <Link href="#faq" title="FAQ" />
-              <Link href="#pricing" title="Pricing" />
-              <Link href="#contact" title="Contact" />
+              <AnchorLink href="/" title="Home" />
+              <AnchorLink href="/works" title="About" />
+              <AnchorLink href="/contact" title="Contact" />
             </Anchor>
+            {isLoggedIn ? (
+              <Link to="/login">
+                <button className="btnheader-login2">My Account</button>
+              </Link>
+            ) : (
+              <Link to="/login">
+                <button className="btnheader-login2">Login</button>
+              </Link>
+            )}
           </Drawer>
         </div>
       </div>

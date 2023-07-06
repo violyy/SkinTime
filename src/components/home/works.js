@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button, Modal } from 'antd';
+// import { Button, Modal } from 'antd';
 
 class AppWorks extends React.Component {
   state = { visible: false };
@@ -22,22 +22,14 @@ class AppWorks extends React.Component {
     return (
       <div id="works" className="block worksBlock">
         <div className="container-fluid">
-          <div className="titleHolder">
-            <h2>How it works</h2>
-            <p>check our latest video to know how it works</p>
+          <div className="titleHolder3">
+            <div className="titleHolder2">
+          <h2>About Us</h2>
+        </div>
+        <div className="contentHolder">
+          <p>SkinTime is a website that is created to help satisfy people's needs on finding the right ingredients for their skin concerns. The test's results was carefully discussed with a guidance from a dermatologist. Our goals is to help people reduce the risks of using products that may worsen skin condition and improve skin by using the right skincare ingredients.</p>
+        </div>
           </div>
-          <div className="contentHolder">
-            <Button size="large" onClick={this.showModal}><i className="fas fa-play"></i></Button>
-          </div>
-          <Modal
-            title="Woocommerce Tutorial"
-            visible={this.state.visible}
-            onCancel={this.handleCancel}
-            footer={null}
-            destroyOnClose = {true}
-          >
-            <iframe title="Woocommerce Tutorial" width="100%" height="350" src="https://www.youtube.com/embed/8f8_JYIzOno?list=PLiUrl-SQRR7LQINGQGE99pXWDuKq4SxfU"></iframe>
-          </Modal>
         </div>
       </div>
     );

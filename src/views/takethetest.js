@@ -6,26 +6,30 @@ import { Carousel } from 'antd';
 const items = [
   {
     key: '1',
-    title: 'Skin Test : Best Active Ingredients for Your Skin',
-    content: 'New to skincare? Have no idea what to use to improve your skin? This test will help you determine what is the best ingredients to help you with the troubles you have with your skin.',
+    title: 'SKIN TEST',
   },
 ];
 
 function AppHero() {
   return (
-    <div id="hero" className="heroBlock">
+    <div id="hero" className="heroBlock2">
       <Carousel>
         {items.map(item => {
           return (
             <div key={item.key} className="container-fluid">
-              <div className='content-bg-tp'>
+              <div className='content-bg-tp2'>
                 <div className="content">
                   <h3>{item.title}</h3>
-                  <p>{item.content}</p>
+                  <h6>Best Skincare Ingredients for Your Skin</h6>
+                  <p>This test will take about 3-5 minutes</p>
+                  <p>Language : Indonesian</p>
+                  <p className='kecilinukuran'> This test will help determine the best active ingredients that works well
+                   with your skin concern. Please answer truthfully as it may cause another skin problem if don’t.</p>
+                    
                   <div className="btnHolder">
-                    <Link to="/takethetest">
+                    <Link to="/expertsystem">
                       <button className='takethetest'>
-                        Take the Test
+                        Start
                       </button>
                     </Link>
                   </div>
